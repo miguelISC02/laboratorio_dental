@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorio Dental — Coronas, Puentes y Removibles</title>
+<meta name="description" content="Laboratorio dental especializado en coronas, puentes y prótesis removibles. Cotiza por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <span class="nav-mark" aria-hidden="true">⬡</span>
+      <span class="thin">ORTEGA<span class="nav-brand-text">LAB</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#materiales">Materiales</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" id="nav-whatsapp" target="_blank" rel="noopener">Cotizar</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Laboratorio dental · EDOMEX y CDMX</p>
+        <h1>Prótesis fija y removible, <em>fabricadas a especificación.</em></h1>
+        <p class="hero-sub">Trabajamos directo con tu clínica: coronas, puentes y removibles en los materiales que tú definas, con tiempos de entrega claros y seguimiento caso por caso.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary whatsapp-link" data-service="Cotización general">
+            <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.5c-.1.2-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.6-.1l.7-.8c.2-.3.4-.2.7-.1l1.9 1c.2.1.4.2.4.4.1.2.1.9-.1 1.6Z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+          <a href="#servicios" class="btn btn-ghost">Ver servicios ↓</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Servicios</dt><dd>Fija &amp; removible</dd></div>
+          <div><dt>Cotización</dt><dd>Directo por WhatsApp</dd></div>
+          <div><dt>Materiales</dt><dd>A tu especificación</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-diagram" role="img" aria-label="Corte transversal de una corona dental mostrando sus capas de material">
+        <!-- SIGNATURE ELEMENT: technical cross-section diagram -->
+        <svg viewBox="0 0 420 460" class="crown-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="enamel" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f4efe4"/>
+              <stop offset="100%" stop-color="#e7dfcd"/>
+            </linearGradient>
+            <linearGradient id="core" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#d8cdb8"/>
+              <stop offset="100%" stop-color="#c3b596"/>
+            </linearGradient>
+            <linearGradient id="cement" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#9c8459"/>
+              <stop offset="100%" stop-color="#8b6f47"/>
+            </linearGradient>
+          </defs>
+
+          <!-- baseline grid, blueprint feel -->
+          <g stroke="#8b6f47" stroke-opacity="0.12" stroke-width="1">
+            <line x1="0" y1="115" x2="420" y2="115"/>
+            <line x1="0" y1="230" x2="420" y2="230"/>
+            <line x1="0" y1="345" x2="420" y2="345"/>
+          </g>
+
+          <!-- crown outer (enamel/porcelain layer) -->
+          <path d="M 130 60 C 130 40 165 28 210 28 C 255 28 290 40 290 60 L 300 260 C 300 300 260 330 210 330 C 160 330 120 300 120 260 Z" fill="url(#enamel)" stroke="#1c2321" stroke-width="2"/>
+
+          <!-- core (zirconia/substructure) -->
+          <path d="M 150 90 C 150 78 175 70 210 70 C 245 70 270 78 270 90 L 276 250 C 276 278 248 300 210 300 C 172 300 144 278 144 250 Z" fill="url(#core)" stroke="#1c2321" stroke-width="1.4" stroke-dasharray="4 3"/>
+
+          <!-- cement layer -->
+          <path d="M 165 250 C 165 240 185 232 210 232 C 235 232 255 240 255 250 L 258 300 C 258 316 236 328 210 328 C 184 328 162 316 162 300 Z" fill="url(#cement)" stroke="#1c2321" stroke-width="1.4"/>
+
+          <!-- prepared tooth stub -->
+          <path d="M 175 300 L 172 380 C 172 396 190 406 210 406 C 230 406 248 396 248 380 L 245 300 Z" fill="#e9e4da" stroke="#1c2321" stroke-width="1.4"/>
+          <rect x="172" y="406" width="76" height="14" fill="#8b6f47" opacity="0.25"/>
+
+          <!-- leader lines + labels -->
+          <g class="diagram-labels" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#1c2321">
+            <line x1="300" y1="90" x2="352" y2="90" stroke="#8b6f47" stroke-width="1"/>
+            <circle cx="300" cy="90" r="2.5" fill="#8b6f47"/>
+            <text x="356" y="94">01 — Capa estética</text>
+
+            <line x1="270" y1="160" x2="352" y2="160" stroke="#8b6f47" stroke-width="1"/>
+            <circle cx="270" cy="160" r="2.5" fill="#8b6f47"/>
+            <text x="356" y="164">02 — Núcleo / subestructura</text>
+
+            <line x1="255" y1="270" x2="352" y2="270" stroke="#8b6f47" stroke-width="1"/>
+            <circle cx="255" cy="270" r="2.5" fill="#8b6f47"/>
+            <text x="356" y="274">03 — Línea de cementado</text>
+
+            <line x1="220" y1="360" x2="352" y2="360" stroke="#8b6f47" stroke-width="1"/>
+            <circle cx="220" cy="360" r="2.5" fill="#8b6f47"/>
+            <text x="356" y="364">04 — Muñón / preparación</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICIOS ============ -->
+  <section id="servicios" class="services">
+    <div class="section-head">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Servicios</p>
+      <h2>Tres líneas de trabajo, un mismo control de calidad.</h2>
+    </div>
+
+    <div class="service-grid" id="service-grid">
+      <!-- Fallback content; será reemplazado por Sanity si hay datos -->
+      <article class="service-card">
+        <span class="service-index">01</span>
+        <h3>Coronas</h3>
+        <p>Unitarias, en zirconia monolítica, disilicato de litio o metal-porcelana. Ajuste de contactos y oclusión verificado antes de envío.</p>
+        <a href="#" class="service-link whatsapp-link" data-service="Coronas">Cotizar coronas →</a>
+      </article>
+      <article class="service-card">
+        <span class="service-index">02</span>
+        <h3>Puentes</h3>
+        <p>Prótesis fija de 3 o más unidades sobre diente natural o implante. Diseño de pónticos e infraestructura según el caso clínico.</p>
+        <a href="#" class="service-link whatsapp-link" data-service="Puentes">Cotizar puentes →</a>
+      </article>
+      <article class="service-card">
+        <span class="service-index">03</span>
+        <h3>Removibles</h3>
+        <p>Parciales metálicas, flexibles o totales en acrílico. Diseño de retenedores y planeación de eje de inserción incluida.</p>
+        <a href="#" class="service-link whatsapp-link" data-service="Removibles">Cotizar removibles →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ MATERIALES ============ -->
+  <section id="materiales" class="materials">
+    <div class="section-head">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Materiales</p>
+      <h2>Cada caso lleva el material que su indicación requiere.</h2>
+    </div>
+
+    <div class="material-grid" id="material-grid">
+      <!-- Fallback content; será reemplazado por Sanity si hay datos -->
+      <div class="material-card">
+        <span class="material-tag">ZrO₂</span>
+        <h3>Zirconia monolítica</h3>
+        <p>Alta resistencia. Indicada para sector posterior y pacientes con bruxismo.</p>
+      </div>
+      <div class="material-card">
+        <span class="material-tag">e.max</span>
+        <h3>Disilicato de litio</h3>
+        <p>Estética superior para sector anterior, translucidez similar al diente natural.</p>
+      </div>
+      <div class="material-card">
+        <span class="material-tag">PFM</span>
+        <h3>Metal-porcelana</h3>
+        <p>Infraestructura metálica con recubrimiento cerámico. Costo-efectiva y probada.</p>
+      </div>
+      <div class="material-card">
+        <span class="material-tag">Co-Cr</span>
+        <h3>Cromo-cobalto</h3>
+        <p>Armazones de removibles parciales, ligeros y de alta precisión de colado.</p>
+      </div>
+      <div class="material-card">
+        <span class="material-tag">PMMA</span>
+        <h3>Acrílico / PMMA</h3>
+        <p>Totales, provisionales y bases de removible con buen ajuste tisular.</p>
+      </div>
+      <div class="material-card">
+        <span class="material-tag">Flex</span>
+        <h3>Nylon flexible</h3>
+        <p>Parciales sin retenedores metálicos visibles, mayor tolerancia del paciente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESO ============ -->
+  <section id="proceso" class="process">
+    <div class="section-head">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Proceso</p>
+      <h2>De la impresión a la entrega.</h2>
+    </div>
+    <ol class="process-list">
+      <li><span>1</span><div><h4>Envío del caso</h4><p>Impresión física o archivo digital (STL) + orden de trabajo con especificaciones.</p></div></li>
+      <li><span>2</span><div><h4>Diseño y fabricación</h4><p>Modelado, selección de material acordado y control dimensional interno.</p></div></li>
+      <li><span>3</span><div><h4>Verificación</h4><p>Revisión de ajuste, contactos y color antes de empacar.</p></div></li>
+      <li><span>4</span><div><h4>Entrega</h4><p>Coordinación de entrega o mensajería según el tiempo pactado.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section id="contacto" class="contact">
+    <div class="contact-inner">
+      <h2>¿Tienes un caso para cotizar?</h2>
+      <p>Mándanos foto o STL del caso y el servicio que necesitas — respondemos por WhatsApp con precio y tiempo de entrega.</p>
+      <a href="#" class="btn btn-primary whatsapp-link" data-service="Cotización general">
+        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.5c-.1.2-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.6-.1l.7-.8c.2-.3.4-.2.7-.1l1.9 1c.2.1.4.2.4.4.1.2.1.9-.1 1.6Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <div class="contact-meta">
+        <div><span class="eyebrow-dot"></span>Lun–Vie 9:00–18:00</div>
+        <div><span class="eyebrow-dot"></span>Ecatepec de Morelos, Edo. Méx.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Laboratorio Dental. Todos los derechos reservados.</span>
+    <span class="footer-note">Sitio informativo — precios sujetos a valoración del caso.</span>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
