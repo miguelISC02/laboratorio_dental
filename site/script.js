@@ -48,20 +48,35 @@
     const materialsQuery = encodeURIComponent(
       `*[_type == "material" && active == true] | order(order asc){name, tag, description}`
     );
+    const priceGroupsQuery = encodeURIComponent(
+      `*[_type == "priceGroup" && active == true] | order(order asc){groupName, tag, items}`
+    );
 
     const base = `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}`;
 
     try {
-      const [servicesRes, materialsRes] = await Promise.all([
+      const [servicesRes, materialsRes, priceGroupsRes] = await Promise.all([
         fetch(`${base}?query=${servicesQuery}`),
-        fetch(`${base}?query=${materialsQuery}`)
+        fetch(`${base}?query=${materialsQuery}`),
+        fetch(`${base}?query=${priceGroupsQuery}`)
       ]);
 
       if (servicesRes.ok) {
         const { result } = await servicesRes.json();
         if (Array.isArray(result) && result.length) renderServices(result);
       }
-      if (materialsRes.ok) {
+
+      // Los grupos de precios tienen prioridad sobre "material" simple:
+      // si hay priceGroups activos, se usan esos; si no, se cae a "material".
+      let usedPriceGroups = false;
+      if (priceGroupsRes.ok) {
+        const { result } = await priceGroupsRes.json();
+        if (Array.isArray(result) && result.length) {
+          renderPriceGroups(result);
+          usedPriceGroups = true;
+        }
+      }
+      if (!usedPriceGroups && materialsRes.ok) {
         const { result } = await materialsRes.json();
         if (Array.isArray(result) && result.length) renderMaterials(result);
       }
@@ -69,6 +84,65 @@
       // Si Sanity falla o no hay internet, se queda el contenido de respaldo del HTML.
       console.warn("No se pudo cargar contenido de Sanity, se muestra contenido de respaldo.", err);
     }
+  }
+
+  function formatPrice(value) {
+    if (typeof value !== "number") return "";
+    return "$" + value.toLocaleString("es-MX", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function renderPriceGroups(groups) {
+    const container = document.getElementById("material-grid");
+    container.innerHTML = "";
+    container.classList.remove("material-grid");
+    container.classList.add("price-groups");
+
+    groups.forEach((group) => {
+      const wrap = document.createElement("div");
+      wrap.className = "price-group";
+
+      const head = document.createElement("div");
+      head.className = "price-group-head";
+      head.innerHTML = `<span class="material-tag"></span><h3></h3>`;
+      head.querySelector(".material-tag").textContent = group.tag || "";
+      head.querySelector("h3").textContent = group.groupName;
+      wrap.appendChild(head);
+
+      const table = document.createElement("table");
+      table.className = "price-table";
+      table.innerHTML = `
+        <thead><tr><th>Producto</th><th>Entrega</th><th>Costo</th></tr></thead>
+        <tbody></tbody>
+      `;
+      const tbody = table.querySelector("tbody");
+      (group.items || []).forEach((item) => {
+        const tr = document.createElement("tr");
+        const noteHtml = item.priceNote
+          ? ` <span class="unit">${item.priceNote}</span>`
+          : "";
+        tr.innerHTML = `
+          <td></td>
+          <td></td>
+          <td>${formatPrice(item.price)}${noteHtml}</td>
+        `;
+        tr.children[0].textContent = item.product || "";
+        tr.children[1].textContent = item.deliveryTime || "";
+        tbody.appendChild(tr);
+      });
+      wrap.appendChild(table);
+
+      const link = document.createElement("a");
+      link.href = "#";
+      link.className = "service-link whatsapp-link";
+      link.dataset.service = group.groupName;
+      link.textContent = `Cotizar ${group.groupName.toLowerCase()} →`;
+      link.href = buildWhatsappUrl(group.groupName);
+      link.target = "_blank";
+      link.rel = "noopener";
+      wrap.appendChild(link);
+
+      container.appendChild(wrap);
+    });
   }
 
   function renderServices(services) {
@@ -97,6 +171,8 @@
   function renderMaterials(materials) {
     const grid = document.getElementById("material-grid");
     grid.innerHTML = "";
+    grid.classList.remove("price-groups");
+    grid.classList.add("material-grid");
     materials.forEach((m) => {
       const card = document.createElement("div");
       card.className = "material-card";
