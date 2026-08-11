@@ -51,14 +51,18 @@
     const priceGroupsQuery = encodeURIComponent(
       `*[_type == "priceGroup" && active == true] | order(order asc){groupName, tag, items}`
     );
+    const galleryQuery = encodeURIComponent(
+      `*[_type == "galleryImage" && active == true] | order(order asc){caption, "imageUrl": image.asset->url}`
+    );
 
     const base = `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}`;
 
     try {
-      const [servicesRes, materialsRes, priceGroupsRes] = await Promise.all([
+      const [servicesRes, materialsRes, priceGroupsRes, galleryRes] = await Promise.all([
         fetch(`${base}?query=${servicesQuery}`),
         fetch(`${base}?query=${materialsQuery}`),
-        fetch(`${base}?query=${priceGroupsQuery}`)
+        fetch(`${base}?query=${priceGroupsQuery}`),
+        fetch(`${base}?query=${galleryQuery}`)
       ]);
 
       if (servicesRes.ok) {
@@ -80,10 +84,50 @@
         const { result } = await materialsRes.json();
         if (Array.isArray(result) && result.length) renderMaterials(result);
       }
+
+      if (galleryRes.ok) {
+        const { result } = await galleryRes.json();
+        if (Array.isArray(result) && result.length) renderGallery(result);
+      }
     } catch (err) {
       // Si Sanity falla o no hay internet, se queda el contenido de respaldo del HTML.
       console.warn("No se pudo cargar contenido de Sanity, se muestra contenido de respaldo.", err);
     }
+  }
+
+  function renderGallery(images) {
+    const grid = document.getElementById("gallery-grid");
+    grid.innerHTML = "";
+
+    images.forEach((img) => {
+      if (!img.imageUrl) return;
+      const item = document.createElement("div");
+      item.className = "gallery-item";
+      item.innerHTML = `<img src="${img.imageUrl}?w=500&h=500&fit=crop" alt="${img.caption || "Trabajo de laboratorio"}" loading="lazy">`;
+      if (img.caption) {
+        const cap = document.createElement("div");
+        cap.className = "gallery-caption";
+        cap.textContent = img.caption;
+        item.appendChild(cap);
+      }
+      item.addEventListener("click", () => openLightbox(img.imageUrl, img.caption));
+      grid.appendChild(item);
+    });
+  }
+
+  function openLightbox(url, caption) {
+    const overlay = document.createElement("div");
+    overlay.className = "gallery-lightbox";
+    overlay.innerHTML = `
+      <button class="gallery-lightbox-close" aria-label="Cerrar">&times;</button>
+      <img src="${url}?w=1600" alt="${caption || ""}">
+    `;
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay || e.target.classList.contains("gallery-lightbox-close")) {
+        overlay.remove();
+      }
+    });
+    document.body.appendChild(overlay);
   }
 
   function formatPrice(value) {
