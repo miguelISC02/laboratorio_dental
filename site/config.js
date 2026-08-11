@@ -4,7 +4,7 @@
 const SITE_CONFIG = {
   // Número de WhatsApp en formato internacional, SIN "+", SIN espacios.
   // Ejemplo México: 52 1 55 1234 5678  ->  "5215512345678"
-  whatsappNumber: "5215528547022", // Atención WhatsApp Ortega Lab: 55 2854 7022
+  whatsappNumber: "5513201392", // Atención WhatsApp Ortega Lab: 55 2854 7022
 
   // Mensaje base que se prellena en WhatsApp (se le agrega el servicio)
   whatsappMessageBase: "Hola, quiero cotizar",
