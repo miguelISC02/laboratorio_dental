@@ -13,8 +13,8 @@ const SITE_CONFIG = {
   // Déjalo en useSanity: false mientras no tengas el proyecto de Sanity listo.
   // El sitio funciona perfecto solo con el HTML (contenido de respaldo).
   sanity: {
-    useSanity: false,           // cámbialo a true cuando tengas tu proyecto Sanity
-    projectId: "TU_PROJECT_ID", // lo obtienes al crear el proyecto en sanity.io
+    useSanity: true,           // cámbialo a true cuando tengas tu proyecto Sanity
+    projectId: "esn28sm4", // lo obtienes al crear el proyecto en sanity.io
     dataset: "production",
     apiVersion: "2024-01-01"
   }
