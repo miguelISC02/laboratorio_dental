@@ -294,6 +294,83 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 }
 
 /* ===========================================================
+   PRICE GROUPS (materials pricing tables)
+=========================================================== */
+.price-groups{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.price-group{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  background: var(--porcelain);
+}
+.price-group-head{
+  display:flex; align-items:center; gap: .8em;
+  margin-bottom: 1.1em;
+}
+.price-group-head h3{ font-size: 1.05rem; margin:0; }
+.price-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  margin-bottom: 1.1em;
+}
+.price-table thead th{
+  text-align:left;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+  padding: 0 0 .5em;
+  border-bottom: 1px solid var(--line);
+}
+.price-table td{
+  padding: .55em 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--ink);
+}
+.price-table tbody tr:last-child td{ border-bottom: none; }
+.price-table td:last-child{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+}
+.price-table .unit{
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: .85em;
+}
+.price-note{
+  max-width: var(--max-w);
+  margin: 28px auto 0;
+  padding: 0 24px;
+  font-size: .86rem;
+  color: var(--ink-soft);
+}
+.price-note strong{ color: var(--alloy-dark); }
+
+@media (max-width: 860px){
+  .price-groups{ grid-template-columns: 1fr; }
+}
+
+.contact-phone{
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  color: var(--stone);
+  margin: 1.2em 0 0;
+}
+.contact-phone a{ color: var(--porcelain); border-bottom: 1px solid var(--alloy); }
+
+/* ===========================================================
    PROCESS
 =========================================================== */
 .process{ padding: 88px 0 100px; }
