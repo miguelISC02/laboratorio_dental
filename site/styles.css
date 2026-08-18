@@ -1,18 +1,18 @@
 /* ===========================================================
    DESIGN TOKENS
-   Paleta inspirada en materiales de laboratorio dental:
-   porcelana, zirconia, aleación (bronce) y grafito.
+   Paleta azul pastel — DEE7F6 como base de header/footer,
+   con variaciones tonales para mantener jerarquía y contraste.
 =========================================================== */
 :root{
-  --porcelain:   #F7F4EE;
-  --porcelain-2: #EFEADF;
-  --ink:         #1C2321;
-  --ink-soft:    #4A4640;
-  --alloy:       #8B6F47;
-  --alloy-dark:  #6E5638;
-  --slate:       #4A6670;
-  --stone:       #C9BFB0;
-  --line:        rgba(28,35,33,0.12);
+  --porcelain:   #DEE7F6; /* fondo de header/footer y hero */
+  --porcelain-2: #F1F5FC; /* fondo de tarjetas/secciones secundarias */
+  --ink:         #1B2A3D; /* texto principal / fondo oscuro (contacto) */
+  --ink-soft:    #4A5A72; /* texto de cuerpo */
+  --alloy:       #5B7FB5; /* acento: links, íconos, tags */
+  --alloy-dark:  #2E4A72; /* acento oscuro: hover, CTA, títulos resaltados */
+  --slate:       #6B7A99; /* acento secundario: fondo de tags/etiquetas */
+  --stone:       #AEB9CC; /* líneas, texto muted, placeholders */
+  --line:        rgba(27,42,61,0.12);
 
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body:    'IBM Plex Serif', Georgia, serif;
@@ -71,7 +71,7 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 =========================================================== */
 .nav{
   position: sticky; top:0; z-index: 50;
-  background: rgba(247,244,238,0.92);
+  background: #5B7FB5;
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -81,6 +81,7 @@ ul,ol{ margin:0; padding:0; list-style:none; }
   padding: 16px 24px;
   display:flex; align-items:center; justify-content:space-between;
   gap: 24px;
+  color: var(--porcelain);
 }
 .nav-brand{
   display:flex; align-items:center; gap:.5em;
@@ -89,12 +90,12 @@ ul,ol{ margin:0; padding:0; list-style:none; }
   font-size:1.1rem;
   letter-spacing: .02em;
 }
-.nav-mark{ color: var(--alloy); font-size:1.2rem; }
-.thin{ font-weight:400; color: var(--ink-soft); }
-.nav-links{ display:flex; gap:2rem; font-size:.92rem; }
-.nav-links a:hover{ color: var(--alloy-dark); }
+.nav-mark{ color: var(--porcelain); font-size:1.2rem; }
+.thin{ font-weight:400; color: var(--porcelain); }
+.nav-links{ display:flex; gap:2rem; font-size:.92rem; font-family: var(--font-display); }
+.nav-links a:hover{ color: var(--porcelain-2); }
 .nav-cta{
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size:.82rem;
   border: 1px solid var(--ink);
   padding: .55em 1.1em;
@@ -186,17 +187,24 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 }
 
 .hero-diagram{
-  background: var(--porcelain-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
 }
-.crown-svg{ width:100%; height:auto; }
-
+.hero-image{
+  width: 100%;
+  height: 100%;
+  max-height: 460px;
+  object-fit: contain;
+  display: block;
+}
+ 
 @media (max-width: 900px){
   .hero-grid{ grid-template-columns: 1fr; }
   .hero-diagram{ order:-1; max-width: 380px; margin: 0 auto; }
 }
+
 
 /* ===========================================================
    SECTION HEAD (shared)
